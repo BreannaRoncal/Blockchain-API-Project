@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Breanna's Blockchain API Prices</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <script type = "text/javascript">  
-        const formatter = new Intl.NumberFormat('en-us',{
-            style: 'currency',
-            currency: 'USD',
-        });    
-    </script>  
-</head>
-<body>
-    <h1>Welcome to Breanna's Blockchain API Prices</h1>
-    
-    <h2>Top 5 Crypto</h2>
-    <ul>
-        
-        <% topFive.forEach((elm) => { %>
-            <li><%= elm.symbol %> $<%= elm.price_24h %></li>
-        <% }) %>
-    </ul>
-</body>
+    <link rel="stylesheet" href="styles/main.css" />
+    <script type="text/javascript">
+      const formatter = new Intl.NumberFormat("en-us", {
+        style: "currency",
+        currency: "USD",
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="top-five">
+        <h1>Welcome to Breanna's Blockchain API Prices</h1>
+
+        <h2>Top 5 Crypto</h2>
+        <ul>
+          <% topFive.forEach((elm) => { %>
+          <li><%= elm.symbol %> $<%= elm.price_24h %></li>
+          <% }) %>
+        </ul>
+      </div>
+      <form id="myForm" method="post">
+        <label for="cryptoInput">Enter Crypto Symbol:</label>
+        <input
+          type="text"
+          id="cryptoInput"
+          name="cryptoName"
+          placeholder="ex BTC"
+        />
+        <input id="submit" type="submit" value="POST" formaction="/tickers" />
+      </form>
+    </div>
+  </body>
 </html>
