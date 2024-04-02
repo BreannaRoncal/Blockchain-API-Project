@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Breanna's Blockchain API Prices</title>
     <link rel="stylesheet" href="styles/main.css">
+    <script type = "text/javascript">  
+        const formatter = new Intl.NumberFormat('en-us',{
+            style: 'currency',
+            currency: 'USD',
+        });    
+    </script>  
 </head>
 <body>
     <h1>Welcome to Breanna's Blockchain API Prices</h1>
-    <p> <%= topFive[0].symbol %> <%= topFive[0].price_24h %> </p>
+    
     <h2>Top 5 Crypto</h2>
     <ul>
+        
         <% topFive.forEach((elm) => { %>
-            <li><%= elm.symbol %> <%= elm.price_24h %></li>
+            <li><%= elm.symbol %> $<%= elm.price_24h %></li>
         <% }) %>
     </ul>
 </body>
