@@ -15,12 +15,12 @@ function sortPrices(a, b) {
 app.get("/", async (req, res) => {
     const response = await axios.get("https://api.blockchain.com/v3/exchange/tickers");
     // Only get cryptocurrency in USD
-    var responseUSD = response.data.filter(element => element.symbol.includes("-USD"));
+    var responseUSDT = response.data.filter(element => element.symbol.includes("-USDT"));
     
     // Get top five prices
-    var topFiveResponseUSD = responseUSD.sort(sortPrices).slice(0, 5);
-    console.log(topFiveResponseUSD);
-    res.render("index.ejs");
+    var topFiveResponseUSDT = responseUSDT.sort(sortPrices).slice(0, 5);
+    console.log(topFiveResponseUSDT);
+    res.render("index.ejs", { topFive: topFiveResponseUSDT });
 })
 
 app.listen(port, () => {
