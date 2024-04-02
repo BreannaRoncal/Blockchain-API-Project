@@ -16,7 +16,9 @@
     <div class="container">
       <div class="top-five">
         <h1>Welcome to Breanna's Blockchain API Prices</h1>
-
+        <% if (locals.symbol && locals.price) { %>
+        <p><%= symbol %> $<%= price %></p>
+        <% } else { %>
         <h2>Top 5 Crypto</h2>
         <ul>
           <% topFive.forEach((elm) => { %>
@@ -24,12 +26,13 @@
           <% }) %>
         </ul>
       </div>
+      <% } %>
       <form id="myForm" method="post">
         <label for="cryptoInput">Enter Crypto Symbol:</label>
         <input
           type="text"
           id="cryptoInput"
-          name="cryptoName"
+          name="cryptoSymbol"
           placeholder="ex BTC"
         />
         <input id="submit" type="submit" value="POST" formaction="/tickers" />
