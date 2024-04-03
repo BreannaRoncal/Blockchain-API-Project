@@ -1,3 +1,15 @@
-body{
-    background-color: lightskyblue;
+body {
+  background-color: lightskyblue;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.container {
+  background-color: white;
+  width: 40%;
+  height: 80%;
+  border: 2px solid black;
 }
